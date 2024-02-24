@@ -3,9 +3,7 @@ import postgres from "postgres";
 import { AddForm } from "@/app/add-form";
 import { DeleteForm } from "@/app/delete-form";
 
-let sql = postgres(process.env.DATABASE_URL || process.env.POSTGRES_URL!, {
-  ssl: "allow",
-});
+let sql = postgres(process.env.DATABASE_URL || process.env.POSTGRES_URL!, {});
 
 export default async function Home() {
   let todos = await sql`SELECT * FROM todos`;
